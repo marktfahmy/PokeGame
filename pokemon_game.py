@@ -1,11 +1,15 @@
 from Pokemon_class import Pokemon
 from User_class import User
 from random import randint
+import pokemon.master as pk
 import pandas as pd
 import numpy as np
 import time
 
-pokemons = pd.read_csv("PokeList.csv")
+pokemon_list = pd.DataFrame(pk.catch_em_all()).transpose()
+pokemons = pokemon_list[['id','name','type']]
+pokemons.loc[:,'type'] = pokemons.loc[:,'type'].apply(lambda x: x[0])
+## this gives a stupid warning that doesn't make any sense
 starters = pokemons.iloc[[0,3,6]].values
 
 print("Welcome to the best (not really) Pokemon game you'll ever play!")

@@ -13,7 +13,7 @@ class Pokemon:
           self.stats = [0, 0, 0] ## [attack, defense, stamina] - max 15
           self.IV = 0
           self.defending = False
-          self.pokedex_entry = pokedex_entry.strip()
+          self.pokedex_entry = pokedex_entry
 
      def get_name(self):
           return self.name
@@ -37,7 +37,7 @@ class Pokemon:
           return self.pokedex_entry
 
      def get_ascii_art(self):
-          return asciis[str(int(self.get_pokedex_entry()[1:]))]['ascii']
+          return asciis[str(int(self.get_pokedex_entry()))]['ascii']
 
      def display_details(self):
           print("Name:\t\t",self.get_name())
